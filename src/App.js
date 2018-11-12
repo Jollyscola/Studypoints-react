@@ -1,25 +1,24 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Link, Route, Switch } from 'react-router-dom';
+import Users from './Users'
+
+import Userinfo from './Userinfo';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="container text-center">
+      
+          <ul>
+            <li><Link to="/All">Se all user</Link></li>
+          </ul>
+        
+       
+          <Switch>
+            <Route exact={true} path="/All" component={Users} />
+            <Route path="/details/:index" component={Userinfo} />
+          </Switch>
+        
       </div>
     );
   }
